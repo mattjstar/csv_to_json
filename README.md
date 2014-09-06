@@ -1,0 +1,1 @@
+importer/exporter which accepts stock item data in csv format and exports it as JSON
