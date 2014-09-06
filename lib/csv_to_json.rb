@@ -1,10 +1,10 @@
 require 'csv'
 require 'json'
-require_relative 'import_utils'
-include ImportUtils
+require_relative 'stock_items_import_utils'
+include StockItemsImportUtils
 
 if ARGV.count == 1
-	puts csv_to_json(ARGV.first)
+	puts stock_items_csv_to_json(ARGV.first)
 elsif ARGV.count == 0
 	puts "Please enter a valid csv file."
 else

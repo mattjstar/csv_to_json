@@ -1,4 +1,4 @@
-module ImportUtils
+module StockItemsImportUtils
 
 	def parse_modifiers(row, modifier_columns)
 		modifiers = []
@@ -17,8 +17,7 @@ module ImportUtils
 		return modifiers
 	end
 
-	def import_stock_items(csv_file)
-		csv_text = File.open(csv_file, "r:ISO-8859-1")
+	def import_csv_items(csv_text)
 		csv = CSV.parse(csv_text, :headers => true)
 		items_array = []
 		csv.each do |row|
@@ -40,7 +39,12 @@ module ImportUtils
 		return items_array
 	end
 
-	def csv_to_json(file)
-		JSON.pretty_generate(import_stock_items(file))
+	def stock_items_csv_to_json(input)
+		if input[(input.length - 4)..input.length] == ".csv"
+			csv_text = File.open(input, "r:ISO-8859-1")
+		else
+			csv_text = input
+		end
+		JSON.pretty_generate(import_csv_items(csv_text))
 	end
 end
