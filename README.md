@@ -1,1 +1,3 @@
-importer/exporter which accepts stock item data in csv format and exports it as JSON
+Importer/Exporter which accepts stock item data in csv format and exports it as JSON.
+
+To complete the Ruby Challenge I implemented the csv_to_json feature for stock items as a module (/lib/stock_items_import_utils.rb) so it can be easily included in a production application. To confirm that the module works appropriately I used the challenge's sample data (example.csv) to run a few tests (tests.rb), and also did my own QA by including it as a command line application that accepts both .csv files as well as csv formatted strings (/bin/csv_to_json).
